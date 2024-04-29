@@ -12,12 +12,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
   width: 100%;
   scroll-behavior: smooth;
   position: relative;
+  overflow-x: hidden;
   /* background: linear-gradient(to left top, #031A9A, #8B53FF); */
 }
 
@@ -135,14 +133,14 @@ footer {
   /* Center the content horizontally */
 }
 
-.addCart{
-   margin-top: 10px;
-   border-radius: 5px;
-   padding: 6px 4px;
-   background-color: #bc9e82;
-   cursor: pointer;
-   border: none !important;
-   transition: background-color 0.1s ease-in-out;
+.addCart {
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 6px 4px;
+  background-color: #bc9e82;
+  cursor: pointer;
+  border: none !important;
+  transition: background-color 0.1s ease-in-out;
 
 }
 
@@ -150,6 +148,15 @@ footer {
 
 .addCart:hover {
   background-color: #fff;
+}
+
+.products {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
 }
 
 .products p {
@@ -217,6 +224,8 @@ footer {
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
+
+
 
 .carousel::-webkit-scrollbar {
   display: none;
@@ -350,7 +359,7 @@ svg{
 }
 
 /* cart */
-.cartTab{
+.cartTab {
   width: 400px;
   background-color: #353432;
   color: #eee;
@@ -362,42 +371,51 @@ svg{
   grid-template-rows: 70px 1fr 70px;
   transition: .5s;
 }
-body.showCart .cartTab{
+
+body.showCart .cartTab {
   right: 0;
 }
-body.showCart .container{
+
+body.showCart .container {
   transform: translateX(-250px);
 }
-.cartTab h1{
+
+.cartTab h1 {
   padding: 20px;
   margin: 0;
   font-weight: 300;
 }
-.cartTab .btn{
+
+.cartTab .btn {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-.cartTab button{
+
+.cartTab button {
   background-color: #E8BC0E;
   border: none;
   font-family: Poppins;
   font-weight: 500;
   cursor: pointer;
 }
-.cartTab .close{
+
+.cartTab .close {
   background-color: #eee;
 }
-.listCart .item img{
+
+.listCart .item img {
   width: 100%;
 }
-.listCart .item{
+
+.listCart .item {
   display: grid;
   grid-template-columns: 70px 150px 50px 1fr;
   gap: 10px;
   text-align: center;
   align-items: center;
 }
-.listCart .quantity span{
+
+.listCart .quantity span {
   display: inline-block;
   width: 25px;
   height: 25px;
@@ -406,64 +424,102 @@ body.showCart .container{
   color: #555;
   cursor: pointer;
 }
-.listCart .quantity span:nth-child(2){
+
+.listCart .quantity span:nth-child(2) {
   background-color: transparent;
   color: #eee;
   cursor: auto;
 }
-.listCart .item:nth-child(even){
+
+.listCart .item:nth-child(even) {
   background-color: #eee1;
 }
-.listCart{
+
+.listCart {
   overflow: auto;
 }
-.listCart::-webkit-scrollbar{
+
+.listCart::-webkit-scrollbar {
   width: 0;
 }
-@media only screen and (max-width: 992px) {
-  .listProduct{
-      grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 
-/* mobile */
-@media only screen and (max-width: 768px) {
-  .listProduct{
-      grid-template-columns: repeat(2, 1fr);
-  }
-} 
 
 
-@media only screen and (max-width: 768px) {  /* Small screens and below */
-  .wrapper .carousel {
-    grid-auto-columns: calc(100% - 16px);  /* One column for small screens */
-  }
-}
 
-@media only screen and (max-width: 992px) {  /* Medium screens and below (optional) */
-  .wrapper .carousel {
-    grid-auto-columns: calc(50% - 8px);  /* Two columns for medium screens */
-  }
-}
 
-.floatingbutton{
+.floatingbutton {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #d4c6b9; /* Button background color */
-  color: #fff; /* Button text color */
-  border-radius: 50%; /* Make it a circle */
-  width: 40px; /* Button width */
-  height: 40px; /* Button height */
+  background-color: #d4c6b9;
+  /* Button background color */
+  color: #fff;
+  /* Button text color */
+  border-radius: 50%;
+  /* Make it a circle */
+  width: 40px;
+  /* Button width */
+  height: 40px;
+  /* Button height */
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  /* Add a shadow for depth */
 }
 
 /* Style the quantity text inside the button */
 .floatingbutton .quantity {
   font-size: 16px;
+}
+
+
+
+
+/* mobile screen */
+@media only screen and (max-width: 992px) {
+  .listProduct {
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+
+  .products p {
+    width: auto;
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 24px;
+    width: 80%;
+    
+  }
+  .products{
+    padding: 20px;
+  }
+
+  .products p {
+    font-size: 1rem;
+ 
+    line-height: 1.2;
+    width: 250px;
+
+  }
+
+  .wrapper i:first-child {
+    left: 5%;
+    
+  }
+
+  .wrapper i:last-child {
+    right: 5%;
+    
+  }
+  .wrapper .carousel {
+    grid-auto-columns: calc(50% - 8px);  /* One column for small screens */
+  }
 }
