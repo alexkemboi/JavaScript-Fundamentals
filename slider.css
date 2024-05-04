@@ -125,41 +125,43 @@ header .scroller p {
 
 /*Footer*/
 footer {
-  background-color: transparent;
-  /* Light gray background */
+  background-color: #bc9e82;
   padding: 20px;
-  text-align: center;
+  text-align: center;  /* Center the content horizontally */
   bottom: 0px;
-  /* Center the content horizontally */
 }
 
 .addCart {
   margin-top: 10px;
   border-radius: 5px;
-  padding: 6px 4px;
+  padding: 12px 8px;
   background-color: #bc9e82;
   cursor: pointer;
   border: none !important;
   transition: background-color 0.1s ease-in-out;
-
 }
 
 
 
 .addCart:hover {
   background-color: #fff;
+  animation: shake3856 0.3s
 }
 
 .products {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0px;
   align-items: center;
   justify-content: center;
+ 
 }
-
+.products:hover{
+  animation: shake3856 0.3s;
+}
 .products p {
+ 
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
@@ -200,7 +202,9 @@ footer {
   transform: translateY(-50%);
   transition: transform 0.1s linear;
 }
-
+.wrapper i:hover {
+  animation: shake3856 0.3s;
+}
 .wrapper i:active {
   transform: translateY(-50%) scale(0.85);
 }
@@ -219,7 +223,7 @@ footer {
   grid-auto-columns: calc((100% / 3) - 12px);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 16px;
+  gap: 10px;
   border-radius: 8px;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -301,75 +305,22 @@ footer {
 
 
 
-/* cart from git */
-/* 
-
-svg{
-  width: 30px;
-}
-
-.icon-cart{
-  position: relative;
-}
-.icon-cart span{
-  position: absolute;
-  background-color: red;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  color: #fff;
-  top: 50%;
-  right: -20px;
-}
-.title{
-  font-size: xx-large;
-}
-.listProduct .item img{
-  width: 90%;
-  filter: drop-shadow(0 50px 20px #0009);
-}
-.listProduct{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-.listProduct .item{
-  background-color: #EEEEE6;
-  padding: 20px;
-  border-radius: 20px;
-}
-.listProduct .item h2{
-  font-weight: 500;
-  font-size: large;
-}
-.listProduct .item .price{
-  letter-spacing: 7px;
-  font-size: small;
-}
-.listProduct .item button{
-  background-color: #353432;
-  color: #eee;
-  border: none;
-  padding: 5px 10px;
-  margin-top: 10px;
-  border-radius: 20px;
-}
-
 /* cart */
 .cartTab {
-  width: 400px;
+  width: 100%; /* Adjust width to fit the screen */
+  max-width: 400px; /* Limit maximum width */
   background-color: #353432;
   color: #eee;
   position: fixed;
   top: 0;
-  right: -400px;
+  right: -100%; /* Initially hidden from view */
   bottom: 0;
   display: grid;
   grid-template-rows: 70px 1fr 70px;
-  transition: .5s;
+  transition: right 0.5s; /* Use right property for transition */
+  border: 5px solid #fff; /* Add border */
+  padding: 10px; /* Add padding */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
 body.showCart .cartTab {
@@ -390,6 +341,9 @@ body.showCart .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+.cardTab .btn:hover{
+  animation: shake3856 0.3s;
+}
 
 .cartTab button {
   background-color: #E8BC0E;
@@ -398,7 +352,9 @@ body.showCart .container {
   font-weight: 500;
   cursor: pointer;
 }
-
+.cartTab button:hover {
+  animation: shake3856 0.3s;
+}
 .cartTab .close {
   background-color: #eee;
 }
@@ -454,13 +410,13 @@ body.showCart .container {
   right: 20px;
   background-color: #d4c6b9;
   /* Button background color */
-  color: #fff;
+  color:black;
   /* Button text color */
   border-radius: 50%;
   /* Make it a circle */
-  width: 40px;
+  width: 80px;
   /* Button width */
-  height: 40px;
+  height: 80px;
   /* Button height */
   display: flex;
   justify-content: center;
@@ -480,6 +436,11 @@ body.showCart .container {
 
 /* mobile screen */
 @media only screen and (max-width: 992px) {
+  .navbar a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
   .listProduct {
     grid-template-columns: repeat(3, 1fr);
 
@@ -488,6 +449,7 @@ body.showCart .container {
   .products p {
     width: auto;
   }
+ 
 }
 
 
@@ -522,4 +484,76 @@ body.showCart .container {
   .wrapper .carousel {
     grid-auto-columns: calc(50% - 8px);  /* One column for small screens */
   }
+}
+
+.navbar {
+  background-color: white;
+  overflow: hidden;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.navbar a:hover {
+  background-color: #bc9e82;
+  color: white;
+}
+.navbar a.active {
+  background-color: #bc9e82;
+  color: black;
+}
+
+
+@keyframes successAnimation {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Apply animation to the success message */
+.success-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px; /* Adjust width as needed */
+  height:75px; /* Adjust height as needed */
+  padding: 20px;
+  background-color: #d4c6b9;
+  color: black;
+  border-radius: 5px;
+  z-index: 1000;
+  animation: successAnimation 5s ease-in-out;
+  align-items: center;
+}
+
+/* Style the success icon */
+.success-icon {
+  font-size: 36px; /* Adjust icon size as needed */
+  margin-bottom: 10px;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+}
+.buyItems {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px; /* Adjust width as needed */
+  height:75px; /* Adjust height as needed */
+  padding: 20px;
+  background-color: #d4c6b9;
+  color: black;
+  border-radius: 5px;
+  z-index: 1000;
+  animation: successAnimation 5s ease-in-out;
+  align-items: center;
 }

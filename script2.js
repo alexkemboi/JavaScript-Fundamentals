@@ -187,3 +187,15 @@ wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
 
 
+
+
+  function buyitems(){
+    var buyItems = document.getElementById('buyItems');
+    buyItems.style.display = 'block';
+  
+    // Remove success message after 3 seconds
+    setTimeout(function() {
+      buyItems.style.display = 'none';
+    }, 5000);
+  }
+  

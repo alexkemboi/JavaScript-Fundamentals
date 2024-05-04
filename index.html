@@ -6,12 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nike Featured Image Slider</title>
   <link rel="stylesheet" href="slider.css">
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+
 </head>
 
 <body class="showcart">
-  <!-- Header -->
+  
+  <div class="navbar">
+    <a href="#Nike">Nike</a>
+    <a href="#Buy">Buy</a>
+    <a href="#Cart">Cart</a>
+  </div>
   <header>
-    <!-- <div></div> -->
     <h1>An Interactive Nike Metaverse Interactive Prototype images slider feature and shopping cart</h1>
     <p>Discover 5 iconic shoes and their description with just a click!</p>
 
@@ -22,11 +29,23 @@
     </div>
 
     <div class="scroller">
-      <button id="scrollButton">Buy</button>
-
-
+      <button id="scrollButton" onclick="buyitems()">Buy</button>       
     </div>
   </header>
+  <!-- Floating button to show quantity of items in the cart -->
+  <button class="icon-cart">
+    <div class="floatingbutton">
+      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+      width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+      <path fill-rule="evenodd"
+      d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z"
+      clip-rule="evenodd" />
+    </svg>
+    
+    <span class="quantity">0</span>
+  </div>
+</button>
+
 
   <!-- Product section  -->
   <div class="products">
@@ -43,36 +62,42 @@
   </div>
 
 
+  <div id="buyItems" class="buyItems">
+    <i class="fas fa-check-circle success-icon">  
+    </i>
+    Go to the products section to buy
+    
+  
+  </div>
   
 
 
-  <!-- Floating button to show quantity of items in the cart -->
-  <button class="icon-cart">
-    <div class="floatingbutton">
-      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-        width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-        <path fill-rule="evenodd"
-          d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z"
-          clip-rule="evenodd" />
-      </svg>
-
-      <span class="quantity">0</span>
-    </div>
-  </button>
 
 
-  <div class="cartTab">
-    <h1>Shopping Cart</h1>
-    <div class="listCart">
-
-    </div>
-    <div class="btn">
-      <button class="close">CLOSE</button>
-      <button class="checkOut">Check Out</button>
-    </div>
+<div class="cartTab">
+  <h1>Shopping Cart</h1>
+  <div id="success-message" class="success-message">
+    <h4>
+      <i class="fas fa-check-circle success-icon"></i>    
+      Checkout successful!
+    </h4>
   </div>
+  <div id="emptyCart" class="success-message">
+    <h4>
+      <i class="fas fa-check-circle success-icon"></i>    
+      Nothing in the cart
+    </h4>
+  </div>
+  <div class="listCart">
 
-  <footer>
+  </div>
+  <div class="btn">
+    <button class="close">CLOSE</button>
+    <button class="checkOut" id="checkOutBtn" onclick="showSuccessMessage()">Check Out</button>
+  </div>
+</div>
+
+  <footer class="footer">
     <p>&copy; 2024 Nike</p>
   </footer>
 

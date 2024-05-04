@@ -104,6 +104,7 @@ closeCart.addEventListener('click', () => {
 // Define a function to add the cart items to local storage
 const addCartToMemory = () => {
   localStorage.setItem('cart', JSON.stringify(cart));
+  return cart
 }
 
 // Define a function to add the cart items to the HTML
@@ -223,4 +224,25 @@ const addToCart = (product_id) => {
   // Update the HTML and local storage with the new cart information
   addCartToHTML();
   addCartToMemory();
+
+}
+
+
+
+function showSuccessMessage() {
+  if( cart.length){
+    var successMessage = document.getElementById('success-message');
+    successMessage.style.display = 'block';  
+    // Remove success message after 3 seconds
+    setTimeout(function() {
+      successMessage.style.display = 'none';
+    }, 3000);
+  }else{
+    var successMessage = document.getElementById('emptyCart');
+    successMessage.style.display = 'block';  
+    // Remove success message after 3 seconds
+    setTimeout(function() {
+      successMessage.style.display = 'none';
+    }, 3000);
+  }
 }
